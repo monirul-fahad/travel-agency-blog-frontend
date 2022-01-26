@@ -62,9 +62,6 @@ const Hero = ({ deviceType, infinite, autoPlay }) => {
                 Discover your next great <b>adventure</b>, become an{" "}
                 <b>explorer</b> to get started!
               </h6>
-              {/* <button>
-                Read more <FaLongArrowAltRight />
-              </button> */}
             </div>
           </div>
         );

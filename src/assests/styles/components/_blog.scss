@@ -1,0 +1,24 @@
+.blogs {
+  @apply col-span-12 lg:col-span-9 md:col-span-12;
+}
+.blog {
+  @apply grid grid-cols-12 gap-4 py-5;
+  &__single-item {
+    @apply col-span-12 md:col-span-12 lg:col-span-6;
+    margin: 0 25px 40px;
+    background-color: aliceblue;
+    border-radius: 7px;
+    img {
+      border-radius: 7px;
+      height: 280px;
+      object-fit: cover;
+      width: 100%;
+    }
+    &__content {
+      @apply px-5;
+      &__author-details {
+        @apply flex justify-between py-5;
+      }
+    }
+  }
+}
