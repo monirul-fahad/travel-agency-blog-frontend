@@ -6,7 +6,7 @@
   &__single-item {
     @apply col-span-12 md:col-span-12 lg:col-span-6;
     margin: 0 25px 40px;
-    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.842);
     border-radius: 7px;
     img {
       border-radius: 7px;
@@ -15,7 +15,15 @@
       width: 100%;
     }
     &__content {
-      @apply px-5;
+      @apply px-5 py-4;
+      h3 {
+        @apply text-center text-java-500 font-extrabold;
+        &:hover {
+          //   @apply text-java-500;
+          color: #0a58ca;
+          transition: all ease 0.3s;
+        }
+      }
       &__author-details {
         @apply flex justify-between py-5;
       }

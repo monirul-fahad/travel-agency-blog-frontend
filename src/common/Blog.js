@@ -2,18 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
+  const { name, title, img, id, desc, time } = blog;
   return (
     <div className="blog__single-item">
-      <img src={blog.img} alt="" />
+      <img src={img} alt="" />
       <div className="blog__single-item__content">
-        <Link>
-          <h3>{blog.title}</h3>
+        <Link to={`blogDetails/${id}`}>
+          <h3>{title}</h3>
         </Link>
         <div className="blog__single-item__content__author-details">
-          <span>{blog.name}</span>
-          <span>{blog.time}</span>
+          <span>{name}</span>
+          <span>{time}</span>
         </div>
-        <p>{blog.desc}</p>
+        <p>{desc}</p>
       </div>
     </div>
   );
