@@ -3,8 +3,11 @@
 import React from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
+  const { user, logout } = useAuth();
+  console.log(user);
   return (
     <div className="navbar-area">
       <div className="main-responsive-nav">
@@ -108,16 +111,23 @@ const Header = () => {
               </ul>
               <div className="flex items-center others-options">
                 <div className="option-item">
-                  <Link className="search-box" to="#">
+                  <Link className="search-box inline-block" to="#">
                     <i>
                       <BiUserCircle />
                     </i>
                   </Link>
+                  <span className="pl-2">{user.displayName}</span>
                 </div>
                 <div className="option-item">
-                  <Link to="login" className="default-btn">
-                    Register
-                  </Link>
+                  {user.email ? (
+                    <Link onClick={logout} className="default-btn">
+                      Log Out
+                    </Link>
+                  ) : (
+                    <Link to="login" className="default-btn">
+                      Register
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>

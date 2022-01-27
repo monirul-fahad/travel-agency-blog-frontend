@@ -1,13 +1,18 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
+  const { registerUser } = useAuth();
+  const history = useHistory();
   const {
-    // handleSubmit,
+    handleSubmit,
     register,
     formState: { errors },
   } = useForm();
+  const submitHandler = (data) => registerUser(data, history);
 
   return (
     <>
@@ -15,7 +20,7 @@ const Register = () => {
         <form
           className="register__form"
           // login__form
-          // onSubmit={handleSubmit(submitHandler)}
+          onClick={handleSubmit(submitHandler)}
         >
           <label>
             <span className="register__form__title">Name</span>

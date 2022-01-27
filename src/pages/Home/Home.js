@@ -5,7 +5,7 @@ import Main from "../../components/Main";
 const Home = () => {
   return (
     <div>
-      <Hero />
+      <Hero autoPlay="true" infinite="true" deviceType="desktop" />
       <Main />
     </div>
   );

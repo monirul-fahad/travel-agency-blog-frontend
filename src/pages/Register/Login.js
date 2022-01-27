@@ -1,21 +1,32 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
+  const { signInUsingGoogle, loginUser } = useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
+  const destination = location?.state?.from || "/";
+  const handleGoogleLogin = () => {
+    signInUsingGoogle().then((result) => {
+      history.replace(destination);
+    });
+  };
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
+  const submitHandler = (data) => loginUser(data, location, history);
 
   return (
     <div className="login">
       <div className="login__wrapper">
-        <form
-          className="login__form"
-          // onSubmit={handleSubmit(submitHandler)}
-        >
+        <form className="login__form" onSubmit={handleSubmit(submitHandler)}>
           <label>
             <span className="login__form__title">Email</span>
             <input
@@ -95,7 +106,9 @@ const Login = () => {
       </div>
       <div className="login__google-btn">
         <h5>OR</h5>
-        <button className=" default-btn">Sign in with Google</button>
+        <button onClick={handleGoogleLogin} className=" default-btn">
+          Sign in with Google
+        </button>
       </div>
     </div>
   );
