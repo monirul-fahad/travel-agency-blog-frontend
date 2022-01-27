@@ -7,13 +7,13 @@ const SingleBlog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("http://localhost:5000/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
   //   console.log(blogs);
 
-  const exactData = blogs.filter((td) => td.id === id);
+  const exactData = blogs.filter((td) => td._id === id);
   return (
     <>
       <CommonBanner />

@@ -8,6 +8,7 @@ import PrivateRoute from "./pages/PrivateRoute/PrivateRoute";
 import Login from "./pages/Register/Login";
 import Register from "./pages/Register/Register";
 import SingleBlog from "./pages/SingleBlog";
+import Write from "./pages/Write";
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,9 @@ const AppRouter = () => {
             </Route>
             <Route path="/home">
               <Home />
+            </Route>
+            <Route path="/post">
+              <Write />
             </Route>
             <PrivateRoute path="/blogDetails/:id">
               <SingleBlog />
