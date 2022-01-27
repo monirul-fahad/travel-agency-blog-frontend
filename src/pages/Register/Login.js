@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   const {
-    // handleSubmit,
+    handleSubmit,
     register,
     formState: { errors },
   } = useForm();
@@ -14,7 +14,7 @@ const Login = () => {
       <div className="login__wrapper">
         <form
           className="login__form"
-          //   onSubmit={handleSubmit(submitHandler)}
+          // onSubmit={handleSubmit(submitHandler)}
         >
           <label>
             <span className="login__form__title">Email</span>
@@ -92,6 +92,10 @@ const Login = () => {
             </a>
           </Link>
         </p>
+      </div>
+      <div className="login__google-btn">
+        <h5>OR</h5>
+        <button className=" default-btn">Sign in with Google</button>
       </div>
     </div>
   );

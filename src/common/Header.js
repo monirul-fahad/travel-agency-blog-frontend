@@ -115,7 +115,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className="option-item">
-                  <Link to="#" className="default-btn">
+                  <Link to="login" className="default-btn">
                     Register
                   </Link>
                 </div>
@@ -145,7 +145,7 @@ const Header = () => {
                 </div>
                 <div className="option-item">
                   <Link to="#" className="default-btn">
-                    Book Appointment
+                    Register
                   </Link>
                 </div>
               </div>
