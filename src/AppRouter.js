@@ -23,7 +23,7 @@ const AppRouter = () => {
             <Route path="/home">
               <Home />
             </Route>
-            <Route path="/post">
+            <Route path="/write">
               <Write />
             </Route>
             <PrivateRoute path="/blogDetails/:id">

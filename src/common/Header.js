@@ -37,8 +37,8 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="menu-item  dropdown nav-item">
-                  <Link title="Dentist" to="#" className="nav-link">
-                    Blogs
+                  <Link title="Dentist" to="write" className="nav-link">
+                    Write Blog
                   </Link>
                 </li>
                 <li className="menu-item  dropdown nav-item">
