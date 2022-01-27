@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="footer__container">
         <div className="footer__wrapper">
           <div className="footer__wrapper__single-footer lg:col-span-3 md:col-span-6 col-span-6">
-            <h3 className="widget_title">Travelers Blogs</h3>
+            <h3 className="widget_title">Exploore</h3>
             <ul className="footer-information">
               <li>
                 <span>Location: </span>
