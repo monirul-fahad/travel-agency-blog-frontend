@@ -8,7 +8,7 @@ const Blogs = () => {
   const [postsPerPage] = useState(10);
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://mysterious-peak-40927.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
