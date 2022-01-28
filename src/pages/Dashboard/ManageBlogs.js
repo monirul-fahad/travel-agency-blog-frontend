@@ -12,6 +12,22 @@ const ManageBlogs = () => {
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
+
+  const handleDelete = (id) => {
+    const url = `https://mysterious-peak-40927.herokuapp.com/blogs/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          const remaining = setBlogs.filter((event) => event._id !== id);
+          setBlogs(remaining);
+        }
+      });
+    alert("you have deleted a blog");
+  };
+
   return (
     <div className="dashboard-content">
       <div className="md:col-span-2 hidden md:block">
@@ -36,7 +52,10 @@ const ManageBlogs = () => {
                   <FiEdit className="text-4xl bg-java hover:bg-java-600 p-2 rounded cursor-pointer" />
                 </li>
                 <li>
-                  <RiDeleteBin7Line className="text-4xl bg-java hover:bg-red-600 p-2 rounded cursor-pointer" />
+                  <RiDeleteBin7Line
+                    onClick={() => handleDelete(blog._id)}
+                    className="text-4xl bg-java hover:bg-red-600 p-2 rounded cursor-pointer"
+                  />
                 </li>
               </ul>
             </div>

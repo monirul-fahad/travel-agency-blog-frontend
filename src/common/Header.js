@@ -1,13 +1,21 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const { user, logout } = useAuth();
-  console.log(user);
+
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch(`https://mysterious-peak-40927.herokuapp.com/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
+
   return (
     <div className="navbar-area">
       <div className="main-responsive-nav">
@@ -103,11 +111,13 @@ const Header = () => {
                   </ul>
                 </li>
 
-                <li className="menu-item nav-item">
-                  <Link title="Dashboard" to="dashboard" className="nav-link">
-                    Dashboard
-                  </Link>
-                </li>
+                {admin && (
+                  <li className="menu-item nav-item">
+                    <Link title="Dashboard" to="dashboard" className="nav-link">
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
 
                 <li className="menu-item nav-item">
                   <Link title="Contact Us" to="#" className="nav-link">
