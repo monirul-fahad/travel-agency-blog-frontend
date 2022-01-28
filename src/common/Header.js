@@ -11,7 +11,7 @@ const Header = () => {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(`https://mysterious-peak-40927.herokuapp.com/${user?.email}`)
+    fetch(`https://mysterious-peak-40927.herokuapp.com/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user?.email]);
@@ -110,13 +110,13 @@ const Header = () => {
                     </li>
                   </ul>
                 </li>
-
-                <li className="menu-item nav-item">
-                  <Link title="Dashboard" to="dashboard" className="nav-link">
-                    Dashboard
-                  </Link>
-                </li>
-
+                {admin && (
+                  <li className="menu-item nav-item">
+                    <Link title="Dashboard" to="dashboard" className="nav-link">
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
                 <li className="menu-item nav-item">
                   <Link title="Contact Us" to="#" className="nav-link">
                     Contact Us
