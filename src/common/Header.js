@@ -11,10 +11,10 @@ const Header = () => {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(`https://mysterious-peak-40927.herokuapp.com/${user.email}`)
+    fetch(`https://mysterious-peak-40927.herokuapp.com/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
-  }, [user.email]);
+  }, [user?.email]);
 
   return (
     <div className="navbar-area">

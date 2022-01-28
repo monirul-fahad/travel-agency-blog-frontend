@@ -106,10 +106,10 @@ const Sidebar = () => {
         <div className="widget_tag_cloud">
           <h3 className="">Tags</h3>
           <div className="widget_tag_cloud__wrapper">
-            <a href="#">Business</a>
-            <a href="#">Health</a>
-            <a href="#">Privacy</a>
-            <a href="#">Technology</a>
+            <a href="#">Popular</a>
+            <a href="#">Feature</a>
+            <a href="#">New Event</a>
+            <a href="#">Help</a>
             <a href="#">Tips</a>
           </div>
         </div>
